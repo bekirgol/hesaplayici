@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "620423671373",
+    "project_id": "hesaplayici-643ce",
+    "storage_bucket": "hesaplayici-643ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620423671373:android:5d0a8d5fe37bbff957b604",
+        "android_client_info": {
+          "package_name": "com.example.harfnotuhesaplama"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620423671373-t0boqkbrnou3ogpes1ng40t7hvel2p5h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtAMTkQ2kfmbnkKRchiPIGsOqkRdKYQak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620423671373-t0boqkbrnou3ogpes1ng40t7hvel2p5h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
