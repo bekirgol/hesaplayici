@@ -7,7 +7,6 @@ import 'package:harfnotuhesaplama/pages/home.dart';
 class StartPages extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _StartPages();
   }
 }

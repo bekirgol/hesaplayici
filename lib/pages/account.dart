@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:harfnotuhesaplama/model/modelapi.dart';
@@ -11,9 +10,9 @@ class AccountPages extends StatefulWidget {
 }
 
 class _AccountPagesState extends State<AccountPages> {
-  File imageFile;
+  File? imageFile;
   final picker = ImagePicker();
-  var personResult;
+  Person? personResult;
   final url = Uri.parse(
       'https://raw.githubusercontent.com/bekirgol/bekirgol.github.io/master/apidata/api.json');
 
@@ -102,8 +101,10 @@ class _AccountPagesState extends State<AccountPages> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 50.0),
-            Container(
-              alignment: Alignment.center,
+            CircleAvatar(
+              backgroundColor: Colors.grey[300],
+              radius: 80.0,
+              // alignment: Alignment.center,
               child: imageFile == null
                   ? InkWell(
                       onTap: _showDialog,
@@ -112,25 +113,26 @@ class _AccountPagesState extends State<AccountPages> {
                   : ClipRRect(
                       borderRadius: BorderRadius.circular(100.0),
                       child: Image.file(
-                        imageFile,
+                        imageFile!,
                         width: MediaQuery.of(context).size.width - 200,
                         height: 200,
                         fit: BoxFit.cover,
                       ),
                     ),
-              width: MediaQuery.of(context).size.width - 200,
-              height: 200,
-              decoration: BoxDecoration(
-                border: Border.all(width: 1.0, color: Colors.black),
-                borderRadius: BorderRadius.circular(100.0),
-              ),
+
+              // width: MediaQuery.of(context).size.width - 200,
+              // height: 200,
+              // decoration: BoxDecoration(
+              //   border: Border.all(width: 1.0, color: Colors.black),
+              //   borderRadius: BorderRadius.circular(100.0),
+              // ),
             ),
             SizedBox(height: 20.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  personResult.ad,
+                  personResult!.ad!,
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
@@ -138,7 +140,7 @@ class _AccountPagesState extends State<AccountPages> {
                 ),
                 SizedBox(width: 5.0),
                 Text(
-                  personResult.soyad,
+                  personResult!.soyad!,
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,

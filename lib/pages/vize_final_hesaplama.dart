@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 class VizeFinalCalculation extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _VizeFinalCalculation();
   }
 }
@@ -27,7 +26,6 @@ class _VizeFinalCalculation extends State<VizeFinalCalculation> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text('Vize-Final Hesaplama'),

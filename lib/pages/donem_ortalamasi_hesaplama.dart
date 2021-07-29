@@ -3,16 +3,15 @@ import 'package:flutter/material.dart';
 class DonemOrtalamasiCalculation extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _DonemOrtalamasiCalculation();
   }
 }
 
 class _DonemOrtalamasiCalculation extends State<DonemOrtalamasiCalculation> {
-  String dersAdi = "";
-  int dersKredisi = 1;
-  double harfNotu = 4;
-  List<Ders> tumDersler;
+  String? dersAdi = "";
+  int? dersKredisi = 1;
+  double? harfNotu = 4;
+  late List<Ders> tumDersler;
   double ortalama = 0;
   static int statikSayac = 0;
   var formkey = GlobalKey<FormState>();
@@ -24,7 +23,6 @@ class _DonemOrtalamasiCalculation extends State<DonemOrtalamasiCalculation> {
   }
 
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text('Dönem Ortalaması Hesaplama'),
@@ -43,7 +41,7 @@ class _DonemOrtalamasiCalculation extends State<DonemOrtalamasiCalculation> {
                   ),
                 ),
                 validator: (girilenDeger) {
-                  if (girilenDeger.length < 3) {
+                  if (girilenDeger!.length < 3) {
                     return "Ders Adı 2 den büyük olmalı";
                   } else {
                     return null;
@@ -83,8 +81,8 @@ class _DonemOrtalamasiCalculation extends State<DonemOrtalamasiCalculation> {
               ElevatedButton(
                 child: Text('Ders Ekle'),
                 onPressed: () {
-                  if (formkey.currentState.validate()) {
-                    formkey.currentState.save();
+                  if (formkey.currentState!.validate()) {
+                    formkey.currentState!.save();
                   } else {}
                 },
               ),
@@ -122,7 +120,7 @@ class _DonemOrtalamasiCalculation extends State<DonemOrtalamasiCalculation> {
       },
       child: Card(
         child: ListTile(
-          title: Text(tumDersler[index].ad),
+          title: Text(tumDersler[index].ad!),
           subtitle: Text(
             tumDersler[index].kredi.toString() +
                 'Kredi Ders Not Değeri' +
@@ -228,8 +226,8 @@ class _DonemOrtalamasiCalculation extends State<DonemOrtalamasiCalculation> {
     double tKredi = 0;
     double tNot = 0;
     for (var item in tumDersler) {
-      var kredi = item.kredi;
-      var notdegeri = item.harfDegeri;
+      var kredi = item.kredi!;
+      var notdegeri = item.harfDegeri!;
       tNot = tNot + (notdegeri * kredi);
       tKredi = tKredi + kredi;
     }
@@ -238,9 +236,9 @@ class _DonemOrtalamasiCalculation extends State<DonemOrtalamasiCalculation> {
 }
 
 class Ders {
-  String ad;
-  double harfDegeri;
-  int kredi;
+  String? ad;
+  double? harfDegeri;
+  int? kredi;
   Ders(
     this.ad,
     this.harfDegeri,

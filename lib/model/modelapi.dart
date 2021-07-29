@@ -14,8 +14,8 @@ class Person {
     this.soyad,
   });
 
-  String ad;
-  String soyad;
+  String? ad;
+  String? soyad;
 
   factory Person.fromJson(Map<String, dynamic> json) => Person(
         ad: json["adı"],

@@ -4,17 +4,18 @@ import 'package:harfnotuhesaplama/service/auth_service.dart';
 class AuthPages extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _AuthPageState();
   }
 }
 
 class _AuthPageState extends State<AuthPages> {
   final GlobalKey<FormState> _keyForm = GlobalKey<FormState>();
+  TextEditingController _kullaniciAdi = TextEditingController();
+  TextEditingController _parola = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    var _kullaniciAdi;
-    var _parola;
+    // late var _kullaniciAdi;
+    // late var _parola;
     AuthService _auth = AuthService();
 
     return Scaffold(
@@ -39,29 +40,31 @@ class _AuthPageState extends State<AuthPages> {
                 child: Column(
                   children: [
                     TextFormField(
+                      controller: _kullaniciAdi,
                       decoration: InputDecoration(
                         labelText: 'Kullanıcı Adını Giriniz',
                         fillColor: Colors.white,
                         filled: true,
                       ),
                       keyboardType: TextInputType.emailAddress,
-                      onChanged: (String value) {
-                        _kullaniciAdi = value;
-                      },
+                      // onChanged: (String value) {
+                      //   _kullaniciAdi = value;
+                      // },
                     ),
                     SizedBox(
                       height: 10.0,
                     ),
                     TextFormField(
+                      controller: _parola,
                       decoration: InputDecoration(
                         labelText: 'Parolayı Giriniz',
                         fillColor: Colors.white,
                         filled: true,
                       ),
                       obscureText: true,
-                      onChanged: (String value) {
-                        _parola = value;
-                      },
+                      // onChanged: (String value) {
+                      //   _parola = value;
+                      // },
                     ),
                     SizedBox(
                       height: 10.0,
@@ -72,7 +75,7 @@ class _AuthPageState extends State<AuthPages> {
                         style: TextStyle(color: Colors.white),
                       ),
                       onPressed: () {
-                        _auth.girisYap(_kullaniciAdi, _parola).then(
+                        _auth.girisYap(_kullaniciAdi.text, _parola.text).then(
                               (value) => Navigator.pushReplacementNamed(
                                   context, '/login'),
                             );
